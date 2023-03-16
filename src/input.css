@@ -11,29 +11,124 @@
 
     .container{
     width: 100%;
-    max-width: 140rem;
+   
     margin:  0 auto;
 }
+
 @layer components{
     .toggle__menu span{
         border-radius: 1rem;
-        width: 2rem;
-        height: .3rem;
+        width: 1.5rem;
+        height: .2rem;
         background-color: white;
         display: block;
         margin-right: 1rem;
+        transition: .5s ease
     }
 
     .toggle__menu span:nth-child(2){
         margin: .2rem 0;
     }
 
+    .toggle__menu.open span:first-child{
+        @apply translate-x-0 translate-y-[10px] rotate-[225deg] ease-out duration-[.5s];
+    }
+
+    .toggle__menu.open span:nth-child(2){
+         @apply opacity-0;
+   }
+   .toggle__menu.open span:last-child{
+        @apply translate-x-0 translate-y-[-4px] rotate-[-225deg] ease-out duration-[.5s];
+    }
+    
+    .header__nav{
+        @apply absolute bg-dark right-0 top-0 w-0 h-0 overflow-hidden p-0 lg:static lg:w-fit lg:h-auto;
+    }
+    .header__nav ul li:not(:first-child),.header__nav ul li:not(:last-child){
+        @apply mx-[1rem];
+    }
+
+    .header__nav.open{
+        @apply w-[85%] h-[100vh] p-[2rem] ;
+    }
+
+    .arjay.show{
+        @apply w-full;
+    }
+
+    .get__started{
+        @apply bg-[#191414] text-[#d6f0de] font-semibold py-[.5rem]  rounded-[5rem] text-[.9rem] mb-4 w-[100%] lg:w-[8rem];
+        
+    }
+    .view__plans{
+        @apply font-semibold py-[.5rem]  rounded-[5rem] text-[.9rem] text-[#d6f0de] border-solid border-[1px] border-[#a9dab9] w-[100%] lg:w-[8rem]
+        lg:ml-[1rem];
+    }
+
+    .banner__wrapper{
+        @apply lg:place-content-center lg:place-items-center;
+    }
+
+    .btn{
+        @apply lg:place-items-center lg:items-start;
+    }
+
+    .selection__banner{
+        @apply lg:flex lg:flex-col lg:text-center
+    }
+
+    .premium__text h5{
+        @apply lg:text-[20px]
+    }
+    .mid__text p{
+        @apply pb-[.7rem]
+    }
+    
+    .btn__card button{
+        @apply lg:w-[100%] lg:items-end
+    }
+
+    .ul__links {
+        @apply max-h-[0] overflow-hidden ease-in duration-[.5s] pt-5
+    }
+
+    .ul__links{
+        @apply lg:block lg:max-h-[25rem]
+    }
+   
+    .ul__links.open {
+        @apply max-h-[25rem] w-[100%] ease-in duration-[.5s]
+    }
+
+    .ul__links ul li {
+        @apply pb-2 text-[white] 
+    }
+
+    .ul__links ul li:hover{
+        @apply text-[green]
+    }
+    
+    .title h5{
+        @apply opacity-[.5]
+    }
+
+    .footer__icons{
+        @apply text-[white] text-[2rem] ml-[1rem] mt-3
+    }
+    .footer__icons i{
+        @apply pr-5
+    }
+
+    .footer__icons i {
+        @apply hover:text-[#3bd83b]
+    }
+
+
+
+    .terms__links ul li{
+        @apply hover:text-[green]
+    }
+
+   
 }
 
-.header__nav{
-    @apply absolute bg-dark right-0 top-0 w-0 h-0 overflow-hidden p-0;
-}
-
-.header__nav.open{
-    @apply w-[85%] h-[100vh] p-[2rem] ;
-}
